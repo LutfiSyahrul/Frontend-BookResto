@@ -619,7 +619,7 @@ export default function ProfilRestoranPage() {
                                                             >
                                                                 {/* Tampilkan gambar dari storage Laravel */}
                                                                 <img
-                                                                    src={`${process.env.NEXT_PUBLIC_BACKEND_URL}/storage/${img.image_url}`}
+                                                                    src={`/storage/${img.image_url}`}
                                                                     alt="Galeri"
                                                                     className="h-full w-full object-cover"
                                                                 />
