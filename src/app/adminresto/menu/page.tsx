@@ -430,7 +430,7 @@ export default function MenuPage() {
                                               {menu.image &&
                                               menu.image.length > 4 ? (
                                                   <img
-                                                      src={`http://127.0.0.1:8000${menu.image}`} // URL dari backend Laravel
+                                                      src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${menu.image}`} // URL dari backend Laravel
                                                       alt={menu.name}
                                                       className="h-full w-full object-cover text-[10px] text-center text-gray-400"
                                                       onError={(e) => {

@@ -56,7 +56,7 @@ export default function ProfilRestoranPage() {
         try {
             const token = localStorage.getItem("token");
             const response = await fetch(
-                `http://127.0.0.1:8000/api/admin/profil/galeri/${id}`,
+                `${process.env.NEXT_PUBLIC_API_URL}/admin/profil/galeri/${id}`,
                 {
                     method: "DELETE",
                     headers: {
@@ -89,7 +89,7 @@ export default function ProfilRestoranPage() {
             try {
                 const token = localStorage.getItem("token");
                 const response = await fetch(
-                    "http://127.0.0.1:8000/api/admin/profil",
+                    `${process.env.NEXT_PUBLIC_API_URL}/admin/profil`,
                     {
                         method: "GET",
                         headers: {
@@ -173,7 +173,7 @@ export default function ProfilRestoranPage() {
             }
 
             const response = await fetch(
-                "http://127.0.0.1:8000/api/admin/profil/update",
+                `${process.env.NEXT_PUBLIC_API_URL}/admin/profil/update`,
                 {
                     method: "POST",
                     headers: {
@@ -270,7 +270,7 @@ export default function ProfilRestoranPage() {
                     ) : coverImageUrl ? (
                         /* Menampilkan foto yang sudah tersimpan di Database */
                         <img
-                            src={`http://127.0.0.1:8000/storage/${coverImageUrl}`}
+                            src={`${process.env.NEXT_PUBLIC_API_URL}/storage/${coverImageUrl}`}
                             alt="Sampul Restoran"
                             className="h-full w-full object-cover"
                         />
@@ -619,7 +619,7 @@ export default function ProfilRestoranPage() {
                                                             >
                                                                 {/* Tampilkan gambar dari storage Laravel */}
                                                                 <img
-                                                                    src={`http://127.0.0.1:8000/storage/${img.image_url}`}
+                                                                    src={`${process.env.NEXT_PUBLIC_BACKEND_URL}/storage/${img.image_url}`}
                                                                     alt="Galeri"
                                                                     className="h-full w-full object-cover"
                                                                 />
