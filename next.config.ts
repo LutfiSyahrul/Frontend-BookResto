@@ -1,14 +1,17 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-    // Tambahkan baris rewrites ini
     async rewrites() {
         return [
+            // Proxy untuk Gambar (Yang tadi)
             {
-                // Setiap kali web meminta jalur /storage/apa-saja...
                 source: "/storage/:path*",
-                // ...Vercel akan mengambilkannya diam-diam dari IP VPS bosku
                 destination: "http://187.77.112.209:8000/storage/:path*",
+            },
+            // Proxy BARU untuk API
+            {
+                source: "/api/:path*",
+                destination: "http://187.77.112.209:8000/api/:path*",
             },
         ];
     },
