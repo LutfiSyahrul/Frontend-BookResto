@@ -1,17 +1,16 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-    images: {
-        remotePatterns: [
+    // Tambahkan baris rewrites ini
+    async rewrites() {
+        return [
             {
-                protocol: "https",
-                hostname: "api.domain-backend-bosku.com", // Ganti dengan domain backend yang sebenarnya
+                // Setiap kali web meminta jalur /storage/apa-saja...
+                source: "/storage/:path*",
+                // ...Vercel akan mengambilkannya diam-diam dari IP VPS bosku
+                destination: "http://187.77.112.209:8000/storage/:path*",
             },
-            {
-                protocol: "http",
-                hostname: "127.0.0.1", // local host
-            },
-        ],
+        ];
     },
 };
 

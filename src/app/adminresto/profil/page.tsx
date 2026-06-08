@@ -270,7 +270,7 @@ export default function ProfilRestoranPage() {
                     ) : coverImageUrl ? (
                         /* Menampilkan foto yang sudah tersimpan di Database */
                         <img
-                            src={`${process.env.NEXT_PUBLIC_BACKEND_URL}/storage/${coverImageUrl}`}
+                            src={`/storage/${coverImageUrl}`}
                             alt="Sampul Restoran"
                             className="h-full w-full object-cover"
                         />
