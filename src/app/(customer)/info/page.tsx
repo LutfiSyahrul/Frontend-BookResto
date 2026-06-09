@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link"; // Jangan lupa import Link untuk tombol kembali
 
 export default function InfoPage() {
     const [activeTab, setActiveTab] = useState("about");
@@ -13,9 +14,32 @@ export default function InfoPage() {
     ];
 
     return (
-        <div className="flex min-h-screen w-full flex-col bg-[#FDFCFB] px-4 py-12 font-['Inter'] md:px-12 lg:px-24">
+        <div className="flex min-h-screen w-full flex-col bg-[#FDFCFB] px-4 py-8 font-['Inter'] md:px-12 lg:px-24">
+            {/* Tombol Kembali */}
+            <div className="mb-4">
+                <Link
+                    href="/beranda"
+                    className="group inline-flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-semibold text-[#78716C] transition-all hover:bg-[#F5ECE7] hover:text-[#50281A]"
+                >
+                    <svg
+                        className="h-5 w-5 transition-transform group-hover:-translate-x-1"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth={2}
+                    >
+                        <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M10 19l-7-7m0 0l7-7m-7 7h18"
+                        />
+                    </svg>
+                    Kembali ke Beranda
+                </Link>
+            </div>
+
             {/* Header Section */}
-            <div className="text-center mt-6">
+            <div className="text-center mt-2">
                 <h1 className="font-['Plus_Jakarta_Sans'] text-4xl font-bold tracking-tight text-[#50281A]">
                     Pusat Informasi
                 </h1>
@@ -54,23 +78,30 @@ export default function InfoPage() {
                                 Tentang Booking Resto
                             </h2>
                             <p className="text-sm leading-relaxed text-[#1E1B18]">
-                                **Booking Resto** adalah platform digital
-                                inovatif yang dirancang khusus untuk mempermudah
-                                ekosistem kuliner, menjembatani para pencinta
-                                kuliner dengan restoran favorit mereka secara
-                                elegan dan efisien.
+                                <span className="font-bold">Booking Resto</span>{" "}
+                                adalah platform digital inovatif yang dirancang
+                                khusus untuk mempermudah ekosistem kuliner,
+                                menjembatani para pencinta kuliner dengan
+                                restoran favorit mereka secara elegan dan
+                                efisien.
                             </p>
                             <p className="text-sm leading-relaxed text-[#1E1B18]">
                                 Kami percaya bahwa menikmati hidangan terbaik
                                 tidak harus diawali dengan antrean yang
-                                melelahkan. Melalui fitur unggulan seperti
-                                **Denah Meja Interaktif 360 derajat**, pemilihan
-                                menu langsung, hingga integrasi pembayaran
-                                otomatis yang aman, kami memastikan setiap momen
-                                reservasi Anda berjalan sempurna dari hulu ke
-                                hilir. Salah satu mitra utama kami saat ini
-                                adalah **Waroeng Jamboel**, tempat keanggunan
-                                rasa berpadu dengan kenyamanan maksimal.
+                                melelahkan. Melalui fitur unggulan seperti{" "}
+                                <span className="font-bold">
+                                    Denah Meja Interaktif 360 derajat
+                                </span>
+                                , pemilihan menu langsung, hingga integrasi
+                                pembayaran otomatis yang aman, kami memastikan
+                                setiap momen reservasi Anda berjalan sempurna
+                                dari hulu ke hilir. Salah satu mitra utama kami
+                                saat ini adalah{" "}
+                                <span className="font-bold">
+                                    Waroeng Jamboel
+                                </span>
+                                , tempat keanggunan rasa berpadu dengan
+                                kenyamanan maksimal.
                             </p>
                         </div>
                     )}
@@ -141,9 +172,12 @@ export default function InfoPage() {
                                 </li>
                                 <li>
                                     Reservasi meja dianggap sah dan mengikat
-                                    apabila pembayaran telah berstatus
-                                    **Settlement** atau berhasil di sistem
-                                    payment gateway kami.
+                                    apabila pembayaran telah berstatus{" "}
+                                    <span className="font-bold">
+                                        Settlement
+                                    </span>{" "}
+                                    atau berhasil di sistem payment gateway
+                                    kami.
                                 </li>
                                 <li>
                                     Konsumen diharapkan hadir paling lambat 15
@@ -174,27 +208,38 @@ export default function InfoPage() {
                                 berkomitmen penuh melindungi data personal
                                 konsumen dengan standar enkripsi terbaik.
                             </p>
-                            <ul className="list-inside list-disc space-y-2 text-sm text-[#1E1B18] leading-relaxed">
+                            <ul className="list-outside list-disc space-y-3 pl-4 text-sm text-[#1E1B18] leading-relaxed">
                                 <li>
-                                    **Pengumpulan Data:** Kami hanya merekam
-                                    informasi dasar seperti Nama, Alamat Email,
-                                    dan Nomor Kontak WhatsApp yang diinput
-                                    secara sadar oleh pengguna saat mendaftar
-                                    atau checkout transaksi.
+                                    <span className="font-bold">
+                                        Pengumpulan Data:
+                                    </span>{" "}
+                                    Kami hanya merekam informasi dasar seperti
+                                    Nama, Alamat Email, dan Nomor Kontak
+                                    WhatsApp yang diinput secara sadar oleh
+                                    pengguna saat mendaftar atau checkout
+                                    transaksi.
                                 </li>
                                 <li>
-                                    **Keamanan Pembayaran:** Seluruh data
-                                    sensitif terkait kartu kredit, rekening
-                                    bank, atau akun dompet digital diproses
-                                    langsung melalui jaringan aman **Midtrans
-                                    API** menggunakan enkripsi berlapis, tanpa
+                                    <span className="font-bold">
+                                        Keamanan Pembayaran:
+                                    </span>{" "}
+                                    Seluruh data sensitif terkait kartu kredit,
+                                    rekening bank, atau akun dompet digital
+                                    diproses langsung melalui jaringan aman{" "}
+                                    <span className="font-bold">
+                                        Midtrans API
+                                    </span>{" "}
+                                    menggunakan enkripsi berlapis, tanpa
                                     menyentuh database internal kami.
                                 </li>
                                 <li>
-                                    **Pemanfaatan Informasi:** Kontak Anda
-                                    digunakan murni untuk validasi kehadiran di
-                                    meja restoran, pengiriman token akses AI,
-                                    serta pengiriman e-tiket reservasi resmi.
+                                    <span className="font-bold">
+                                        Pemanfaatan Informasi:
+                                    </span>{" "}
+                                    Kontak Anda digunakan murni untuk validasi
+                                    kehadiran di meja restoran, pengiriman token
+                                    akses AI, serta pengiriman e-tiket reservasi
+                                    resmi.
                                 </li>
                             </ul>
                         </div>
