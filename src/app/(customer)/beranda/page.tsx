@@ -815,25 +815,25 @@ export default function CustomerLandingPage() {
                     </div>
                     <div className="flex flex-wrap items-center gap-4 sm:gap-8">
                         <Link
-                            href="/tentang-kami"
+                            href="/info"
                             className="font-['Plus_Jakarta_Sans'] text-sm text-[#78716C] transition hover:text-[#6B3E2E]"
                         >
                             Tentang Kami
                         </Link>
                         <Link
-                            href="/bantuan"
+                            href="/info"
                             className="font-['Plus_Jakarta_Sans'] text-sm text-[#78716C] transition hover:text-[#6B3E2E]"
                         >
                             Pusat Bantuan
                         </Link>
                         <Link
-                            href="/syarat"
+                            href="/info"
                             className="font-['Plus_Jakarta_Sans'] text-sm text-[#78716C] transition hover:text-[#6B3E2E]"
                         >
                             Syarat & Ketentuan
                         </Link>
                         <Link
-                            href="/privasi"
+                            href="/info"
                             className="font-['Plus_Jakarta_Sans'] text-sm text-[#78716C] transition hover:text-[#6B3E2E]"
                         >
                             Kebijakan Privasi
