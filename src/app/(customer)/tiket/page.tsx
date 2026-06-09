@@ -8,7 +8,8 @@ import axios from "axios";
 function TiketContent() {
     const searchParams = useSearchParams();
     const orderId = searchParams.get("order_id");
-    const transactionStatus = searchParams.get("transaction_status");
+    const transactionStatus =
+        searchParams.get("transaction_status") || searchParams.get("status");
 
     const [orderData, setOrderData] = useState<any>(null);
     const [isLoading, setIsLoading] = useState(true);
@@ -16,7 +17,7 @@ function TiketContent() {
     useEffect(() => {
         const fetchOrderData = async () => {
             try {
-                // 👇 TAMBAHAN BARU: Ekstrak ID asli dari format Midtrans ("RES-22-12345" menjadi "22")
+                // TAMBAHAN BARU: Ekstrak ID asli dari format Midtrans ("RES-22-12345" menjadi "22")
                 let databaseId = orderId;
                 if (orderId && orderId.startsWith("RES-")) {
                     databaseId = orderId.split("-")[1];
