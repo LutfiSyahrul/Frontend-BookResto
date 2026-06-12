@@ -304,9 +304,18 @@ export default function ManajemenRestoranPage() {
                                         <td className="px-6 py-4">
                                             <div className="flex items-center gap-4">
                                                 <img
-                                                    src={resto.image}
+                                                    src={
+                                                        resto.image
+                                                            ? `${process.env.NEXT_PUBLIC_API_URL}/storage/${resto.image}`
+                                                            : "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=100&q=80"
+                                                    }
                                                     alt={resto.nama}
                                                     className="w-12 h-12 rounded-lg object-cover border border-gray-200 shadow-sm"
+                                                    onError={(e) => {
+                                                        // Jika gambar gagal dimuat, otomatis diganti ke gambar default
+                                                        e.currentTarget.src =
+                                                            "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=100&q=80";
+                                                    }}
                                                 />
                                                 <div>
                                                     <div className="font-bold text-[#1E1B18] text-base">
