@@ -82,6 +82,21 @@ export default function ManajemenRestoranPage() {
         return () => clearTimeout(delayDebounceFn);
     }, [currentPage, search, status, category]);
 
+    // Helper anti-nyasar untuk merakit URL gambar
+    const getImageUrl = (imagePath: string) => {
+        if (!imagePath)
+            return "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=100&q=80";
+        // Kalau dari sananya sudah ada http (misal dari Vercel/Cloudinary), langsung pakai
+        if (imagePath.startsWith("http")) return imagePath;
+
+        // Hapus kata '/api' di belakang URL jika ada, lalu sambungkan ke folder storage
+        const baseUrl = (process.env.NEXT_PUBLIC_API_URL || "").replace(
+            /\/api$/,
+            "",
+        );
+        return `${baseUrl}/storage/${imagePath}`;
+    };
+
     // Helper untuk warna badge status
     const getStatusStyle = (status: string) => {
         switch (status) {
@@ -183,7 +198,6 @@ export default function ManajemenRestoranPage() {
             }
         }
     };
-
 
     return (
         <motion.div
@@ -304,15 +318,13 @@ export default function ManajemenRestoranPage() {
                                         <td className="px-6 py-4">
                                             <div className="flex items-center gap-4">
                                                 <img
-                                                    src={
-                                                        resto.image
-                                                            ? `${process.env.NEXT_PUBLIC_API_URL}/storage/${resto.image}`
-                                                            : "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=100&q=80"
-                                                    }
+                                                    src={getImageUrl(
+                                                        resto.image,
+                                                    )}
                                                     alt={resto.nama}
                                                     className="w-12 h-12 rounded-lg object-cover border border-gray-200 shadow-sm"
                                                     onError={(e) => {
-                                                        // Jika gambar gagal dimuat, otomatis diganti ke gambar default
+                                                        // Jika masih gagal dimuat, ganti ke gambar default
                                                         e.currentTarget.src =
                                                             "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=100&q=80";
                                                     }}
